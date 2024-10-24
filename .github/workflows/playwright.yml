@@ -27,15 +27,24 @@ jobs:
         with:
           node-version: lts/*
 
-      # Step 3: Install dependencies
+      # Step 3: Cache dependencies
+      - name: Cache Node.js dependencies
+        uses: actions/cache@v4
+        with:
+          path: node_modules
+          key: node-modules-${{ hashFiles('package-lock.json') }}
+          restore-keys: |
+            node-modules-
+
+      # Step 4: Install dependencies
       - name: Install dependencies
         run: npm ci
 
-      # Step 4: Run Playwright tests with input tag
+      # Step 5: Run Playwright tests with input tag
       - name: Run Playwright tests
         run: npx playwright test --grep "${{ inputs.tag }}"
 
-      # Step 5: Upload Playwright test report as an artifact
+      # Step 6: Upload Playwright test report as an artifact
       - uses: actions/upload-artifact@v4
         if: ${{ !cancelled() }}
         with:
