@@ -8,7 +8,7 @@ on:
     inputs:
       tag:
         description: 'Tag to run (e.g. @smoke, @regression)'
-        required: true
+        required: false
         default: '@smoke'
 
 jobs:
@@ -40,11 +40,15 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
-      # Step 5: Run Playwright tests with input tag
-      - name: Run Playwright tests
-        run: npx playwright test --grep "${{ inputs.tag }}"
+      # Step 5: Set the tag (default to @smoke if not provided)
+      - name: Set tag variable
+        run: echo "TAG=${{ github.event.inputs.tag || '@smoke' }}" >> $GITHUB_ENV
 
-      # Step 6: Upload Playwright test report as an artifact
+      # Step 6: Run Playwright tests with the tag
+      - name: Run Playwright tests
+        run: npx playwright test --grep "$TAG"
+
+      # Step 7: Upload Playwright test report as an artifact
       - uses: actions/upload-artifact@v4
         if: ${{ !cancelled() }}
         with:
