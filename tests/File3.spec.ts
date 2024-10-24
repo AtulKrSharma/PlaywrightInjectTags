@@ -1,6 +1,6 @@
 import { test, expect } from "@playwright/test";
 
-test("File3 Test1", async ({ page }) => {
+test("File3 Test1", {tag: "@smoke"}, async ({ page }) => {
   await page.goto("https://playwright.dev/");
 
   // Expect a title "to contain" a substring.
@@ -19,7 +19,7 @@ test("File3 Test2", async ({ page }) => {
   ).toBeVisible();
 });
 
-test("File3 Test3", async ({ page }) => {
+test("File3 Test3", {tag: "@smoke"}, async ({ page }) => {
   console.log("Assertions in playwright test is running...!");
 
   // Go to URL
