@@ -33,7 +33,7 @@ jobs:
 
       # Step 4: Run Playwright tests with input tag
       - name: Run Playwright tests
-        run: npx playwright test --grep "${{ inputs.tag }}"
+        run: npx playwright test --grep "${{ github.event.inputs.tag }}"
 
       # Step 5: Upload Playwright test report as an artifact
       - uses: actions/upload-artifact@v4
