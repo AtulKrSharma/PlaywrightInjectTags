@@ -9,6 +9,7 @@ on:
       tag:
         description: 'Tag to run (e.g. @smoke, @regression)'
         required: true
+        default: '@smoke'
 
 jobs:
   playwright:
