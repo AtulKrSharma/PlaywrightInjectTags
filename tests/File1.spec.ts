@@ -1,6 +1,6 @@
 import { test, expect } from "@playwright/test";
 
-test("File1 Test1", {tag: "@smoke"},async ({ page }) => {
+test("File1 Test1", {tag: "@smoke", "@regression"},async ({ page }) => {
   await page.goto("https://playwright.dev/");
 
   // Expect a title "to contain" a substring.
@@ -53,7 +53,7 @@ test("File1 Test3", async ({ page }) => {
   await page.waitForTimeout(5000);
 });
 
-test("File1 Test4", {tag: "@smoke"},async ({ page }) => {
+test("File1 Test4", {tag: "@regression"},async ({ page }) => {
   await page.goto("https://playwright.dev/");
 
   // Click the get started link.
