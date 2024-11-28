@@ -1,6 +1,9 @@
 Playwright Tests with Runtime Tag Injection and Caching
 This repository demonstrates how to run Playwright tests with runtime tag injection and cache Node.js dependencies in a GitHub Actions workflow. This ensures that dependencies are only downloaded when necessary, improving CI performance.
 
+![image](https://github.com/user-attachments/assets/32585bc5-b044-4b19-a290-1d7ebb622109)
+
+
 ![image](https://github.com/user-attachments/assets/7a76a25d-2cf3-420e-9411-a8de38162c2b)
 
 
