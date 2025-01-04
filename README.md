@@ -10,7 +10,7 @@ This repository demonstrates how to run Playwright tests with runtime tag inject
 Features
 Tag Injection at Runtime: Specify test tags (e.g., @smoke, @regression) at runtime to run specific subsets of Playwright tests.
 Caching Node.js Dependencies: Uses GitHub Actions' cache to store and reuse node_modules across runs, reducing the need to install dependencies on every workflow execution.
-How It Works
+How It Works:-
 1. Tag Injection
 You can pass a tag (such as @smoke or @regression) at runtime when triggering the GitHub Action, either through a manual workflow dispatch or during push or pull requests. This tag is then used to filter and run specific tests.
 
